@@ -7,7 +7,7 @@ DUMPER_STRING = 'dumper_string'
 
 
 class Pickler:
-    def __init__(self, debug=True):
+    def __init__(self, debug=False):
         self.debug = debug
 
         ##############
