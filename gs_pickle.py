@@ -50,6 +50,7 @@ class Pickler:
             print(*a, **k)
 
     def Dumps(self, obj):
+        self.print('Pickler.Dumps(obj=', obj)
         if type(obj) not in self.dumpers[type(obj).__module__]:
             raise TypeError('Unrecognized type "{}". You must call "Pickler.RegisterDumper(cls, func)" first.'.format(
                 type(obj)
@@ -64,6 +65,7 @@ class Pickler:
         return json.dumps(d)
 
     def Loads(self, strng):
+        self.print('Pickler.Loads(obj=', strng)
         d = json.loads(strng)
         if d[TYPE_OBJ_NAME] not in self.loaders[d[TYPE_OBJ_MODULE]]:
             raise TypeError('Unrecognized type "{}". You must call "Pickler.RegisterDumper(cls, func)" first.'.format(
@@ -72,6 +74,11 @@ class Pickler:
 
         loader = self.loaders[d[TYPE_OBJ_MODULE]][d[TYPE_OBJ_NAME]]
         return loader(d[DUMPER_STRING])
+
+
+class Rick(Pickler):
+    # a joke in honor of AR
+    pass
 
 
 if __name__ == '__main__':
