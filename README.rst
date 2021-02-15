@@ -18,7 +18,7 @@ Example
 
     def DumperDict(d):
         # this is pretty much useless because you could just use json.dumps,
-        #   but it give you an idea.
+        #   but it gives you an idea.
         return json.dumps(d)
 
 

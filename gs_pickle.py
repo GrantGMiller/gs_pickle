@@ -62,7 +62,7 @@ class Pickler:
             DUMPER_STRING: self.dumpers[type(obj).__module__][type(obj)](obj)
         }
 
-        return json.dumps(d)
+        return json.dumps(d, indent=2)
 
     def Loads(self, strng):
         self.print('Pickler.Loads(obj=', strng)
