@@ -13,7 +13,7 @@ Example
 
 ::
 
-     pickler = Pickler()
+    pickler = Pickler()
 
 
     def DumperDict(d):
